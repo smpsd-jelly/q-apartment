@@ -1,0 +1,191 @@
+.bg {
+   background-color: #FFA07A !important;
+   min-height: 100vh;
+  }
+  
+  .content {
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: rgba(255, 255, 255, 0.96);
+    border-radius: 20px;
+    width: 550px;
+    height: 550px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%,-50%);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
+  
+    @media only screen and (max-width: 700px) and (min-width: 550px){
+      width: 500px;
+      height: 500px;
+    }
+  
+    @media only screen and (max-width: 549px){
+      width: 370px;
+      height: 450px;
+    }
+  
+    @media only screen and (max-width: 420px) and (min-width: 350px){
+      width: 300px;
+      height: 400px;
+    }
+  
+    @media only screen and  (max-width: 349px) and (min-width: 270px){
+      width: 250px;
+      height: 400px;
+    }
+  
+    @media only screen and (max-width: 269px){
+      width: 210px;
+      height: 380px;
+    }
+  
+  }
+  
+  .formSize {
+    width: 440px;
+    margin-left: 0;
+    margin-right: 0;
+    
+    :focus{
+      box-shadow: 0 0 2px 2px rgba(0, 121, 107, 0.25);
+    }
+  
+    @media only screen and (max-width: 700px) and (min-width: 550px){
+      width: 370px;
+    }
+  
+    @media only screen and (max-width: 549px){
+      width: 300px;
+    }
+  
+    @media only screen and (max-width: 420px) and (min-width: 350px){
+      width: 250px;
+    }
+  
+    @media only screen and (max-width: 349px) and (min-width: 270px){
+      width: 170px;
+    }
+  
+    @media only screen and (max-width: 269px){
+      width: 160px;
+    }
+  }
+  
+  .fontInForm{
+    @media only screen and (max-width: 420px) and (min-width: 280px){
+      font-size: 10pt;
+    }
+  
+    @media only screen and (max-width: 279px){
+      font-size: 8pt;
+    }
+  }
+  
+  .topicLogin{
+    font-size: 26pt;
+    color: #FF7F50;
+    font-weight: bold;
+    letter-spacing: 6px;
+  
+    @media only screen and (max-width: 700px) {
+      font-size: 22pt;
+    }
+  
+    @media only screen and (max-width: 420px) and (min-width: 350px){
+      font-size: 20pt;
+    }
+  
+    @media only screen and (max-width: 349px) and (min-width: 270px){
+      font-size: 18pt;
+    }
+  
+    @media only screen and (max-width: 269px){
+      font-size: 16pt;
+    }
+  }
+  
+  .fontdefult{
+    font-size: 13pt;
+    font-weight: bold;
+    letter-spacing: 1px;
+  
+    @media only screen and (max-width: 700px) and (min-width: 550px){
+      margin-left: 38px;
+    }
+  
+    @media only screen and (max-width: 549px){
+      margin-left: 3px;
+    }
+  
+    @media only screen and (max-width: 420px) and (min-width: 350px){
+      font-size: 11pt;
+      margin-left: 5px;
+    }
+  
+    @media only screen and (max-width: 349px) and (min-width: 270px){
+      font-size: 11pt;
+      margin-left: 2px;
+    }
+  
+    @media only screen and (max-width: 269px){
+      font-size: 10pt;
+      margin-left: 2px;
+    }
+  }
+  
+  .loginBtn{
+    width: 440px;
+    height: 50px;
+    background-color: #FF7F50;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.25);
+  
+    &:active{
+      color: #FF7F50;
+      box-shadow: inset 0 0 0 2px #FF7F50;
+    }
+  
+    @media only screen and (max-width: 700px) and (min-width: 550px){
+      width: 370px;
+      height: 40px;
+    }
+  
+    @media only screen and (max-width: 549px){
+      width: 300px;
+      height: 40px;
+    }
+  
+    @media only screen and (max-width: 420px) and (min-width: 350px){
+      width: 250px;
+      height: 35px;
+      font-size: 9pt;
+    }
+  
+    @media only screen and (max-width: 349px) and (min-width: 270px){
+      width: 170px;
+      height: 33px;
+      font-size: 9pt;
+    }
+  
+    @media only screen and (max-width: 269px){
+      width: 160px;
+      height: 33px;
+      font-size: 9pt;
+    }
+  }
+
+  .img-size{
+    width: 150px;
+    @media only screen and (max-width: 700px){
+        width: 130px;
+    }
+    @media only screen and (max-width: 549px){
+        width: 100px;
+    }
+    @media only screen and (max-width: 420px){
+        width: 90px;
+    }
+  }

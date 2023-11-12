@@ -1,28 +1,44 @@
-.icon {
-    margin-right: 10px;
-  }
-  
-  .menuList {
-    padding-left: 50px;
-    margin-top: 10px;
-    padding-bottom: 15px;
-    padding-top: 15px;
-    font-size: 14pt;
-    font-weight: 600;
-    cursor: pointer;
+.img-center {
+  margin-left: -10px;
+  width: 125px;
+  position: relative;
+  top: 0px;
+  right: 70px;
+}
 
-    
-    &:hover{
-        margin-left: 20px;
-      background-color: #ECF2F5;
-      border-radius: 10px 0px 0px 10px;
-      border-right: 4px solid #CC633C;
-      color: #CC633C;
-    }
+.icon-cicle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  padding: 0;
+  margin-left: 70px;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.menuList {
+  padding-left: 25px;
+  margin-top: 20px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  font-size: 14pt;
+  font-weight: 600;
+  cursor: pointer;
+
+
+  &:hover {
+    margin-left: 10px;
+    background-color: #ECF2F5;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 4px solid #CC633C;
+    color: #CC633C;
   }
-  
-  .img-center{
-    margin-left: 70px;
-    width: 100px;
-  }
-  
+}
+
+.img-center {
+  margin-left: 70px;
+  width: 100px;
+}

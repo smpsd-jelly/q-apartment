@@ -18,6 +18,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { FixPageComponent } from './layouts/pages/fix-page/fix-page.component';
+import { CleanPageComponent } from './layouts/pages/clean-page/clean-page.component';
+import { PaymentComponent } from './layouts/pages/payment/payment.component';
+import { ElectricityMeterComponent } from './layouts/pages/electricity-meter/electricity-meter.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,10 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     AdminHomepageComponent,
     LayoutsComponent,
     SidebarComponent,
+    FixPageComponent,
+    CleanPageComponent,
+    PaymentComponent,
+    ElectricityMeterComponent
   ],
   imports: [
     BrowserModule,

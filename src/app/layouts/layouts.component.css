@@ -23,9 +23,11 @@ mat-sidenav {
     @media only screen and (max-width: 767px) {
         font-size: 17pt;
     }
+
     @media only screen and (max-width: 600px) {
         font-size: 15pt;
     }
+
     @media only screen and (max-width: 370px) {
         font-size: 13pt;
     }
@@ -39,18 +41,19 @@ mat-sidenav {
     margin-top: 20px;
     background-color: white;
     border-radius: 50px;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     color: #FF7F50;
     box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.15);
-   &:hover{
-    color: white;
-    background-color: #FF7F50;
-    border-color: white;
-   }
+
+    &:hover {
+        color: white;
+        background-color: #FF7F50;
+        border-color: white;
+    }
 }
 
-.header-style{
+.header-style {
     height: 55px;
     box-shadow: 0px 0px 8px 5px rgba(0, 0, 0, 0.25);
     background-color: #F3A07F;
@@ -59,21 +62,23 @@ mat-sidenav {
 
 }
 
-.icon-open{
+.icon-open {
     border-style: none;
-background: rgba(146, 213, 214, 0);
-font-size: 18pt;
+    background: rgba(146, 213, 214, 0);
+    font-size: 18pt;
 }
 
-.version{
+.version {
     position: relative;
     bottom: -130px;
     color: grey
 }
 
-.logout-btn{
+.logout-btn {
     cursor: pointer;
-    :hover{
+
+    :hover {
         color: #115361;
     }
 }
+

@@ -8,3 +8,145 @@ body {
     margin: 0;
     font-family: 'Prompt', 'FontAwesome' !important;
 }
+
+
+.btn-confirm {
+    font-size: 14pt;
+    width: 30%;
+    height: 46px;
+    background-color: #FF7F50;
+    color: #FFFFFF;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.30);
+    border-radius: 10px;
+    border: 0;
+
+    &:hover {
+        background-color: #EE622F;
+        color: #FFFFFF;
+    }
+
+    @media only screen and (max-width: 820px) {
+        width: 60%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        margin-bottom: 40px !important;
+    }
+
+    @media only screen and (max-width: 450px) {
+        width: 70%;
+        height: 40px;
+        font-size: 13pt;
+    }
+    @media only screen and (max-width: 360px) {
+        width: 100%;
+        height: 40px;
+        font-size: 13pt;
+    }
+}
+
+.btn-edit {
+    font-size: 14pt;
+    width: 30%;
+    height: 46px;
+    background-color: #90A5A6;
+    color: #FFFFFF;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.30);
+    border-radius: 10px;
+    border: 0;
+
+    &:hover {
+        background-color: #647677;
+        color: #FFFFFF;
+    }
+
+    @media only screen and (max-width: 820px) {
+        width: 60%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        margin-bottom: 40px !important;
+    }
+
+    
+    @media only screen and (max-width: 450px) {
+        width: 70%;
+        height: 40px;
+        font-size: 13pt;
+    }
+    @media only screen and (max-width: 360px) {
+        width: 100%;
+        height: 40px;
+        font-size: 13pt;
+    }
+}
+
+.text-title{
+    font-size: 18pt !important;
+    font-weight: bold !important;
+    color: #FF7F50 !important;
+}
+
+.form-control, .form-select{
+    border: 3px solid #FF7F50;
+}
+
+.form-control:focus, .form-select:focus,.form-check-input:focus{
+    border-color: #FF7F50;
+    box-shadow: 0 0 0 0.2rem rgba(255, 127, 80, 0.25);
+} 
+
+
+.form-check-input{
+    border: 2px solid #FF7F50;
+    &:hover{
+        box-shadow: 0px 0px 10px 2px rgba(255, 127, 80, 0.25) !important;
+    }
+}
+
+
+.form-check-input:checked{
+    background-color: #FF7F50;
+    border: #FF7F50;
+}
+
+.button-back {
+    color: #707070;
+    cursor: pointer;
+    &:hover{
+    color: #363636;
+    }
+}
+
+ngb-pagination ::ng-deep ul>li:not(.active)>a {
+    color: #000;
+}
+
+ngb-pagination ::ng-deep ul>li.active>a {
+    background-color: #FF7F50 !important;
+    box-shadow: 0px 0px 10px 2px rgba(255, 127, 80, 0.25) !important;
+}
+
+table {
+        border: 2px solid #FF7F50 !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+.table-scroll {
+    overflow-y: auto !important;
+    overflow-x: auto !important;
+}
+
+.table-scroll thead th {
+    position: sticky;
+    top: 0;
+    font-size: 13pt;
+    color: black;
+}
+
+.table-max-height {
+    max-height: 800px !important;
+
+}

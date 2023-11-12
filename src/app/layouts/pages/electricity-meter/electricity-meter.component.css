@@ -1,0 +1,26 @@
+.content {
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-top: 2%;
+}
+
+
+.text-in-content {
+    font-size: 13pt;
+}
+
+
+.margin {
+    margin-top: 0.5rem;
+
+    @media only screen and (max-width: 992px) {
+        margin-top: 1.5rem !important;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .form-center {
+        display: flex;
+        justify-content: center;
+    }
+}

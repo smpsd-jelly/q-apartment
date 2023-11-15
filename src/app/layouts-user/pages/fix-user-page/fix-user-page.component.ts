@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SwalService } from 'src/app/shared/services/swal.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-fix-user-page',
   templateUrl: './fix-user-page.component.html',

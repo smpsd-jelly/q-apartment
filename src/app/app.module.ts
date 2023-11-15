@@ -24,6 +24,10 @@ import { PaymentComponent } from './layouts/pages/payment/payment.component';
 import { ElectricityMeterComponent } from './layouts/pages/electricity-meter/electricity-meter.component';
 import { LayoutsUserComponent } from './layouts-user/layouts-user.component';
 import { FixUserPageComponent } from './layouts-user/pages/fix-user-page/fix-user-page.component';
+import { FixUserHistoryComponent } from './layouts-user/pages/fix-user-history/fix-user-history.component';
+import { CleanUserHistoryComponent } from './layouts-user/pages/clean-user-history/clean-user-history.component';
+import { CleanUserComponent } from './layouts-user/pages/clean-user/clean-user.component';
+import { PaymentUserComponent } from './layouts-user/pages/payment-user/payment-user.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,10 @@ import { FixUserPageComponent } from './layouts-user/pages/fix-user-page/fix-use
     ElectricityMeterComponent,
     FixUserPageComponent,
     LayoutsUserComponent,
-  
+    PaymentUserComponent,
+    CleanUserComponent,
+    CleanUserHistoryComponent,
+    FixUserHistoryComponent,
 
   ],
   imports: [

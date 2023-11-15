@@ -1,0 +1,23 @@
+
+.title-user{
+    font-size: 15pt;
+    font-weight: bold;
+    color: #4E4D4D;
+}
+
+.content{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    width: 50%;
+}
+
+.text-label{
+    display: flex;
+    justify-content: end;
+    font-size: 13pt;
+}
+
+.text-note{
+    color: #656565;
+}

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class ElectricityMeterComponent {
   title = 'บันทึกเลขมิเตอร์'
 
-  constructor(private router: Router, private swalSrv: SwalService) {
+  constructor(private swalSrv: SwalService) {
   }
 
   confirmBtn() {

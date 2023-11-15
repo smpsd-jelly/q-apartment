@@ -1,0 +1,48 @@
+<div class="title-user text-center">
+    {{title}}
+</div>
+<hr class="mt-4">
+<div class="content">
+    <div class="row">
+        <div class="col-lg-3 mt-2 text-label">
+            บริเวณห้อง
+        </div>
+        <div class="col-lg-6">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>กรุณาเลือกบริเวณห้อง</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-lg-3 mt-2 text-label">
+            สิ่งที่ต้องการซ่อม
+        </div>
+        <div class="col-lg-6">
+            <input type="text" class="form-control" placeholder="กรุณาระบุสิ่งที่ต้องการซ่อม">
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-lg-3 mt-2 text-label">
+            รายละเอียดเพิ่มเติม
+        </div>
+        <div class="col-lg-6">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                placeholder="ระบุรายละเอียดเพิ่มเติม"></textarea>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-lg-3 mt-2 text-label">
+            เบอร์โทร
+        </div>
+        <div class="col-lg-6">
+            <input type="text" class="form-control" placeholder="กรุณาระบุเบอร์โทร">
+        </div>
+    </div>
+    <div class="text-note mt-4 text-center">หมายเหตุ เจ้าหน้าที่จะติดต่อไปทางเบอร์โทรอีกครั้ง
+        เพื่อนัดหมายวัน/เวลา</div>
+        <div class="d-flex justify-content-center align-items-center mb-5 mt-5" (click)="confirmBtn()"><button class="btn-confirm"><i
+            class="fa-solid fa-check"></i> Confirm</button></div>
+</div>

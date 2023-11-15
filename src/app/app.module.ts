@@ -22,6 +22,8 @@ import { FixPageComponent } from './layouts/pages/fix-page/fix-page.component';
 import { CleanPageComponent } from './layouts/pages/clean-page/clean-page.component';
 import { PaymentComponent } from './layouts/pages/payment/payment.component';
 import { ElectricityMeterComponent } from './layouts/pages/electricity-meter/electricity-meter.component';
+import { LayoutsUserComponent } from './layouts-user/layouts-user.component';
+import { FixUserPageComponent } from './layouts-user/pages/fix-user-page/fix-user-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,11 @@ import { ElectricityMeterComponent } from './layouts/pages/electricity-meter/ele
     FixPageComponent,
     CleanPageComponent,
     PaymentComponent,
-    ElectricityMeterComponent
+    ElectricityMeterComponent,
+    FixUserPageComponent,
+    LayoutsUserComponent,
+  
+
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    width: 50%;
+}
+
+.text-label-bold {
+    font-size: 13pt;
+    font-weight: bold;
+}
+
+.text-label {
+    font-size: 13pt;
+}
+
+.text-status{
+    display: flex;
+    justify-content: end;
+    border-radius: 10px;
+    color: #FFA07A;
+}
+
+

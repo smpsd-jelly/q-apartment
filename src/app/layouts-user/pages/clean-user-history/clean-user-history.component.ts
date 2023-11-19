@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./clean-user-history.component.css']
 })
 export class CleanUserHistoryComponent {
-
+title = 'ประวัติการแจ้งทำความสะอาด'
 }

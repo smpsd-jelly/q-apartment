@@ -28,6 +28,7 @@ import { FixUserHistoryComponent } from './layouts-user/pages/fix-user-history/f
 import { CleanUserHistoryComponent } from './layouts-user/pages/clean-user-history/clean-user-history.component';
 import { CleanUserComponent } from './layouts-user/pages/clean-user/clean-user.component';
 import { PaymentUserComponent } from './layouts-user/pages/payment-user/payment-user.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { PaymentUserComponent } from './layouts-user/pages/payment-user/payment-
     CleanUserComponent,
     CleanUserHistoryComponent,
     FixUserHistoryComponent,
+    RegisterComponent,
 
   ],
   imports: [

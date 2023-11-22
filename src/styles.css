@@ -182,3 +182,15 @@ table {
         font-size: 14pt;
     }
 }
+
+.text-status-color1{
+    color: #B60000;
+}
+
+.text-status-color2{
+    color: #CA9F08;
+}
+
+.text-status-color3{
+    color: #009B35;
+}

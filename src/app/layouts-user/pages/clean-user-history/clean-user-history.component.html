@@ -2,16 +2,21 @@
     {{title}}
 </div>
 <hr class="mt-4">
-<div class="content">
-    <div class="row">
-        <div class="col-6 ">
-            <div class="text-label-bold">แจ้งทำความสะอาด
-                วันที่ 15/04/2566</div>
+<div *ngIf="cleanData">
+    <div *ngFor="let item of cleanData">
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                    <div class="text-label-bold">แจ้งทำความสะอาด
+                        วันที่ <span>{{item.timestamp|date:'dd/MM/yyyy HH:mm'}} น.</span></div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                    <div class="text-status" [ngClass]="{'text-status-color1':item.state_id == 1,
+                'text-status-color2':item.state_id == 2,'text-status-color3':item.state_id == 3
+            }">{{item.state_name}}</div>
+                </div>
+            </div>
         </div>
-        <div class="col-6">
-            <div class="text-status">กำลังดำเนินการ</div>
-        </div>
+        <hr class="mt-5">
     </div>
-
 </div>
-<hr class="mt-5">

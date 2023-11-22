@@ -13,4 +13,6 @@ import { LayoutsRoutingModule } from './layouts-routing.module';
     LayoutsRoutingModule
   ]
 })
-export class LayoutsModule { }
+export class LayoutsModule {
+  
+ }

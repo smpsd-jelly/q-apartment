@@ -8,11 +8,11 @@
             บริเวณห้อง <span class="text-danger ms-1">*</span>
         </div>
         <div class="col-lg-6 col-md-12">
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="fixForm.area">
                 <option selected>กรุณาเลือกบริเวณห้อง</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="ห้องนอน">ห้องนอน</option>
+                <option value="ห้องนั่งเล่น">ห้องนั่งเล่น</option>
+                <option value="ห้องน้ำ">ห้องน้ำ</option>
             </select>
         </div>
     </div>
@@ -22,16 +22,16 @@
         </div>
         <div class="col-lg-6 col-md-12">
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                placeholder="ระบุสิ่งที่ต้องการซ่อม"></textarea>
+                placeholder="ระบุสิ่งที่ต้องการซ่อม" [(ngModel)]="fixForm.description"></textarea>
         </div>
     </div>
 
     <div class="row mt-4">
         <div class="col-lg-3 col-md-12 mt-2 text-label">
-            เบอร์โทร <span class="text-danger ms-1">*</span>
+            เบอร์โทรสำรอง <span class="text-danger ms-1">*</span>
         </div>
         <div class="col-lg-6 col-md-12">
-            <input type="text" class="form-control" placeholder="กรุณาระบุเบอร์โทร">
+            <input type="text" class="form-control" maxlength="10" placeholder="กรุณาระบุเบอร์โทร"  [(ngModel)]="fixForm.sub_phone">
         </div>
     </div>
     <div class="text-note mt-4 text-center">หมายเหตุ เจ้าหน้าที่จะติดต่อไปทางเบอร์โทรอีกครั้ง

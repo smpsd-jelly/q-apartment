@@ -1,186 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CleanHistory } from 'src/app/shared/interfaces/clean';
+import { User } from 'src/app/shared/interfaces/user';
+import { CleanService } from 'src/app/shared/services/clean.service';
 import { SwalService } from 'src/app/shared/services/swal.service';
-
-export interface clean {
-  id?: number;
-  room: number;
-  date: string;
-  status: string;
-}
-const CLEANINFO: clean[] = [
-  {
-    room: 1112,
-    date: "03/06/2023",
-    status: "รอดำเนินการ",
-  },
-  {
-    room: 1151,
-    date: "02/06/2565",
-    status: "กำลังดำเนินการ",
-  },
-  {
-    room: 1251,
-    date: "02/06/2565",
-    status: "เสร็จสิ้น",
-  },
-  {
-    room: 1112,
-    date: "03/06/2023",
-    status: "รอดำเนินการ",
-  },
-  {
-    room: 1151,
-    date: "02/06/2565",
-    status: "กำลังดำเนินการ",
-  },
-  {
-    room: 1251,
-    date: "02/06/2565",
-    status: "เสร็จสิ้น",
-  }, {
-    room: 1112,
-    date: "03/06/2023",
-    status: "รอดำเนินการ",
-  },
-  {
-    room: 1151,
-    date: "02/06/2565",
-    status: "กำลังดำเนินการ",
-  },
-  {
-    room: 1251,
-    date: "02/06/2565",
-    status: "เสร็จสิ้น",
-  }, {
-    room: 1112,
-    date: "03/06/2023",
-    status: "รอดำเนินการ",
-  },
-  {
-    room: 1151,
-    date: "02/06/2565",
-    status: "กำลังดำเนินการ",
-  },
-  {
-    room: 1251,
-    date: "02/06/2565",
-    status: "เสร็จสิ้น",
-  }, {
-    room: 1112,
-    date: "03/06/2023",
-    status: "รอดำเนินการ",
-  },
-  {
-    room: 1151,
-    date: "02/06/2565",
-    status: "กำลังดำเนินการ",
-  },
-  {
-    room: 1251,
-    date: "02/06/2565",
-    status: "เสร็จสิ้น",
-  }, {
-    room: 1112,
-    date: "03/06/2023",
-    status: "รอดำเนินการ",
-  },
-  {
-    room: 1151,
-    date: "02/06/2565",
-    status: "กำลังดำเนินการ",
-  },
-  {
-    room: 1251,
-    date: "02/06/2565",
-    status: "เสร็จสิ้น",
-  },
-  {
-    room: 1112,
-    date: "03/06/2023",
-    status: "รอดำเนินการ",
-  },
-  {
-    room: 1151,
-    date: "02/06/2565",
-    status: "กำลังดำเนินการ",
-  },
-  {
-    room: 1251,
-    date: "02/06/2565",
-    status: "เสร็จสิ้น",
-  },  {
-    room: 1112,
-    date: "03/06/2023",
-    status: "รอดำเนินการ",
-  },
-  {
-    room: 1151,
-    date: "02/06/2565",
-    status: "กำลังดำเนินการ",
-  },
-  {
-    room: 1251,
-    date: "02/06/2565",
-    status: "เสร็จสิ้น",
-  },  {
-    room: 1112,
-    date: "03/06/2023",
-    status: "รอดำเนินการ",
-  },
-  {
-    room: 1151,
-    date: "02/06/2565",
-    status: "กำลังดำเนินการ",
-  },
-  {
-    room: 1251,
-    date: "02/06/2565",
-    status: "เสร็จสิ้น",
-  },  {
-    room: 1112,
-    date: "03/06/2023",
-    status: "รอดำเนินการ",
-  },
-  {
-    room: 1151,
-    date: "02/06/2565",
-    status: "กำลังดำเนินการ",
-  },
-  {
-    room: 1251,
-    date: "02/06/2565",
-    status: "เสร็จสิ้น",
-  },  {
-    room: 1112,
-    date: "03/06/2023",
-    status: "รอดำเนินการ",
-  },
-  {
-    room: 1151,
-    date: "02/06/2565",
-    status: "กำลังดำเนินการ",
-  },
-  {
-    room: 1251,
-    date: "02/06/2565",
-    status: "เสร็จสิ้น",
-  },  {
-    room: 1112,
-    date: "03/06/2023",
-    status: "รอดำเนินการ",
-  },
-  {
-    room: 1151,
-    date: "02/06/2565",
-    status: "กำลังดำเนินการ",
-  },
-  {
-    room: 1251,
-    date: "02/06/2565",
-    status: "เสร็จสิ้น",
-  },
-]
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-clean-page',
@@ -189,19 +13,109 @@ const CLEANINFO: clean[] = [
 })
 export class CleanPageComponent {
   title = "ข้อมูลการแจ้งทำความสะอาด";
-  allCleanInfo: clean[] = CLEANINFO;
+  // allCleanInfo: clean[] = CLEANINFO;
   page = 1;
   pageSize = 30;
-  collectionSize = CLEANINFO.length;
 
-  constructor(private router: Router, private swalSrv: SwalService) {
-    this.chagnePageFix();
+  cleanData!: CleanHistory[];
+  _cleanData!: CleanHistory[];
+  collectionSize = 0;
+  status: number = 0;
+  room = "";
+  userData!: User
+
+  constructor(private router: Router, private swalSrv: SwalService, private userSrv: UserService, private cleanSrv: CleanService) {
+    this.userData = this.userSrv.getUserData();
+  }
+
+  async ngOnInit() {
+    await this.onData();
+  }
+
+  async ngAfterViewInit() {
+    await this.emitData();
+  }
+
+  async emitData() {
+    await this.cleanSrv.emitAllCleanData();
+  }
+
+  async onData() {
+    const result = await this.cleanSrv.onAllCleanData();
+    result.subscribe((data) => {
+      this._cleanData = data.msg;
+      this.collectionSize = this._cleanData.length;
+      this.chagnePageFix();
+    });
+  }
+
+  async updateState(data: CleanHistory) {
+    console.log(data);
+    console.log(data.state_id);
+    this.swalSrv.confirmAlert({ text: "ต้องการอัพเดทสถานะใช่หรือไม่" }).then(async (result) => {
+      if (result.isConfirmed) {
+        data.state_id++;
+        console.log(data.state_id);
+        this.swalSrv.successAlert({text:"อัพเดทสถานะเสร็จสิ้น"});
+        await this.cleanSrv.updateCleanData(data);
+        setTimeout(() =>{
+          window.location.reload();
+        },1000);
+      }
+    })
   }
 
   chagnePageFix() {
-    this.allCleanInfo = CLEANINFO.map((allCleanInfo, i) => ({ id: i + 1, ...allCleanInfo })).slice(
+    this.cleanData = this._cleanData.map((cleanData, i) => ({ id: i + 1, ...cleanData })).slice(
       (this.page - 1) * this.pageSize,
       (this.page - 1) * this.pageSize + this.pageSize,
     );
   }
+
+  filterBuilding1() {
+    Object.assign(this.cleanData, this._cleanData)
+    this.cleanData = this.cleanData.filter((x) => {
+      return x.building == 1;
+    })
+  }
+
+  filterBuilding2() {
+    Object.assign(this.cleanData, this._cleanData)
+    this.cleanData = this.cleanData.filter((x) => {
+      return x.building == 2;
+    })
+  }
+
+  filterBuilding3() {
+    Object.assign(this.cleanData, this._cleanData)
+    this.cleanData = this.cleanData.filter((x) => {
+      return x.building == 3;
+    })
+  }
+
+  clearFilterBuilding() {
+    Object.assign(this.cleanData, this._cleanData)
+  }
+
+  selectStatus() {
+    Object.assign(this.cleanData, this._cleanData)
+    if (this.status == 0) {
+      return
+    }
+    this.cleanData = this.cleanData.filter((x) => {
+      return x.state_id == this.status;
+    })
+  }
+
+  searchRoom() {
+    Object.assign(this.cleanData, this._cleanData)
+    if (this.room == "") {
+      return
+    }
+    this.cleanData = this.cleanData.filter((x) => {
+      return x.room_num.includes(this.room) ;
+    })
+  }
+
+
 }

@@ -1,1 +1,3 @@
-export const environment = {};
+export const environment = {
+    socketEndpoint: 'http://localhost:5200'
+};

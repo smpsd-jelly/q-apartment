@@ -9,17 +9,17 @@
             <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa-regular fa-circle-user"
                 style="color: #585b65;"></i></span>
             <input type="text" class="form-control fontInForm" aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default" placeholder="Enter your username">
+              aria-describedby="inputGroup-sizing-default" placeholder="Enter your username" [(ngModel)]="loginForm.username">
           </div>
           <div class="fontdefult mb-2">Password</div>
           <div class="input-group mb-3 formSize">
             <span class="input-group-text" id="inputGroup-sizing-default"><i class="fa-solid fa-lock"
                 style="color: #585b65;"></i></span>
             <input type="password" class="form-control fontInForm" aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default" placeholder="Enter your password">
+              aria-describedby="inputGroup-sizing-default" placeholder="Enter your password" [(ngModel)]="loginForm.password">
           </div>
           <div class="d-flex flex-colum justify-content-center"> <button type="button"
-              class="btn loginBtn mt-4 mb-3" routerLink="/admin/home"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+              class="btn loginBtn mt-4 mb-3" (click)="login()"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
           </div>
         </div>
       </div>

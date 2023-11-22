@@ -2,19 +2,26 @@
     {{title}}
 </div>
 <hr class="mt-4">
-<div class="content">
-    <div class="row">
-        <div class="col-6 ">
-            <div class="text-label-bold">แจ้งซ่อมวันที่ 11/04/2566</div>
+<div *ngIf="fixData">
+    <div *ngFor="let item of fixData">
+        <div class="content">
+            <div class="row">
+
+                <div class="col-8 ">
+                    <div class="text-label-bold">แจ้งซ่อมแซม
+                        วันที่ <span>{{item.timestamp|date:'dd/MM/yyyy HH:mm'}} น.</span></div>
+                </div>
+                <div class="col-4">
+                    <div class="text-status" [ngClass]="{'text-status-color1':item.state_id == 1,
+                'text-status-color2':item.state_id == 2,'text-status-color3':item.state_id == 3}">{{item.state_name}}
+                    </div>
+                </div>
+                <div class="col-12 mt-3">
+                    <div class="text-label">{{item.description}} บริเวณ {{item.area}}</div>
+                </div>
+
+            </div>
         </div>
-        <div class="col-6">
-            <div class="text-status">กำลังดำเนินการ</div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 mt-3">
-            <div class="text-label">ซ่อมไฟ บริเวณ ห้องนั่งเล่น</div>
-        </div>
+        <hr class="mt-5" style="width: 100% !important;">
     </div>
 </div>
-<hr class="mt-5">

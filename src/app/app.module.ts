@@ -29,6 +29,10 @@ import { CleanUserHistoryComponent } from './layouts-user/pages/clean-user-histo
 import { CleanUserComponent } from './layouts-user/pages/clean-user/clean-user.component';
 import { PaymentUserComponent } from './layouts-user/pages/payment-user/payment-user.component';
 import { RegisterComponent } from './register/register.component';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { environment } from 'src/environments/environment';
+
+const config: SocketIoConfig = { url: environment.socketEndpoint, options: {} }
 
 @NgModule({
   declarations: [
@@ -63,6 +67,8 @@ import { RegisterComponent } from './register/register.component';
     MatExpansionModule,
     MatListModule,
     NgbPaginationModule,
+    SocketIoModule.forRoot(config),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,24 +1,52 @@
 <div class="row p-0 pt-5 mt-5">
-    <div class="d-flex justify-content-center text-title mt-5">{{title}}</div>
+        <div class="d-flex justify-content-center text-title mt-5">{{title}} </div>
+        <div class="d-flex justify-content-between mt-2 "> 
+            <button class="btn-back" (click)="backToAllBills()"><i class="fa-solid fa-chevron-left"></i> ย้อนกลับ</button>
+            <a class="btn-link"
+            href="https://drive.google.com/u/0/uc?id=14WonbQ0TGu-ktqoPZ-aMdV8N9Ji_xOc3&export=download" download
+            target="_blank">ดาวน์โหลดฟอร์ม</a>
+    </div>
     <div class="content">
+        <!-- <div class="row d-flex justify-content-center align-items-center margin">
+            <div class="col-lg-auto col-md-12  col-sm-12 col-12  mb-3 form-center"> <label
+                    class="text-in-content mt-2 me-3">เลือกตึก</label>
+                <label><select class="form-select">
+                        <option value="0">เลือกตึก</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select></label>
+            </div>
+            <div class="col-lg-auto col-md-12  col-sm-12 col-12  mb-3 form-center">
+                <label class="text-in-content mt-2 me-3">เลือกห้อง</label>
+                <label><select class="form-select">
+                        <option value="0">เลือกห้อง</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select></label>
+            </div>
+        </div> -->
+
         <div class="row d-flex justify-content-center align-items-center margin">
+
             <div class="col-lg-auto col-md-12  col-sm-12 col-12  mb-3 form-center">
                 <label class="text-in-content mt-2 me-3">เลือกเดือน</label>
-                <label><input class="form-control" type="month"></label>
+                <label><input class="form-control" type="month" name="month_year" [(ngModel)]="month_year"></label>
             </div>
         </div>
 
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-lg-auto col-md-12  col-sm-12 col-12  mb-3 form-center">
-                <label  class="text-in-content mt-2 me-3">อัพโหลดไฟล์ .CSV</label>
+                <label class="text-in-content mt-2 me-3">อัพโหลดไฟล์ .CSV</label>
             </div>
             <div class="col-lg-auto col-md-12  col-sm-12 col-12  mb-3 form-center">
                 <label><input class="form-control" type="file"></label>
             </div>
         </div>
-            <div class="d-flex justify-content-center align-items-center mb-5 mt-5" (click)="confirmBtn()"><button class="btn-confirm"><i
-                class="fa-solid fa-check"></i> Confirm</button></div>
-        
+        <div class="d-flex justify-content-center align-items-center mb-5 mt-5 pt-3" (click)="confirmBtn()"><button
+                class="btn-confirm" (click)="test()"><i class="fa-solid fa-check"></i> Confirm</button></div>
 
-        </div>
+
+    </div>
 </div>

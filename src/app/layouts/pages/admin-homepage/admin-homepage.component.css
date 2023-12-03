@@ -1,6 +1,6 @@
 .content {
-    padding-left: 2%;
-    padding-right: 2%;
+    /* padding-left: 2%;
+    padding-right: 2%; */
     margin-top: 2%;
 }
 
@@ -71,7 +71,7 @@
 
 .img-area img {
     width: 450px;
-    height: auto;
+    height: 290px;
     border-radius: 5px;
 }
 

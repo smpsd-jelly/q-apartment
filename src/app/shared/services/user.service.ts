@@ -41,7 +41,12 @@ export class UserService {
       this.swalSrv.successAlert({ title: "Success", text: "กำลังเข้าสู่ระบบแอดมิน" });
       setTimeout(() => {
         this.router.navigate(['/admin/home']);
+          this.swalSrv.loadingAlert({timer: 600});
+        
       }, 2000);
+    }else{
+      this.swalSrv.warningAlert({ text: "Username หรือ Password ไม่ถูกต้อง โปรดลองอีกครั้ง" });
+
     }
   }
 

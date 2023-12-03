@@ -6,6 +6,7 @@ export interface FixData {
     area: string;
     description: string;
     sub_phone: string;
+    room_id: number;
 }
 
 

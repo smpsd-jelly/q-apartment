@@ -5,6 +5,8 @@ import { FixPageComponent } from './pages/fix-page/fix-page.component';
 import { CleanPageComponent } from './pages/clean-page/clean-page.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { ElectricityMeterComponent } from './pages/electricity-meter/electricity-meter.component';
+import { AddUserComponent } from './pages/add-user/add-user.component';
+import { AllElectricityMeterComponent } from './pages/all-electricity-meter/all-electricity-meter.component';
 
 const routes: Routes = [
   { path: 'home', component: AdminHomepageComponent },
@@ -13,7 +15,8 @@ const routes: Routes = [
   { path: 'clean-page', component: CleanPageComponent },
   { path: 'payment-page', component: PaymentComponent },
   { path: 'meter-page', component: ElectricityMeterComponent },
-
+  { path: 'add-user', component: AddUserComponent },
+  { path: 'all-meter', component: AllElectricityMeterComponent },
 ];
 
 @NgModule({

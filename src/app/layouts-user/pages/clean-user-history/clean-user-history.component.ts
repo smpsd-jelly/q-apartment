@@ -31,7 +31,7 @@ export class CleanUserHistoryComponent implements OnInit, AfterViewInit {
 
   async emitData() {
     console.log(this.userData.user_id);
-    await this.cleanSrv.emitCleanData(this.userData.user_id);
+    await this.cleanSrv.emitCleanData(this.userData.user_id,this.userData.room_id);
   }
 
   async onData() {

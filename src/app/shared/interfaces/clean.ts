@@ -5,6 +5,7 @@ export interface CleanData {
     state_id: number;
     description: string;
     sub_phone: string;
+    room_id: number;
 }
 
 export interface CleanHistory {

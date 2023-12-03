@@ -51,6 +51,8 @@ export class CleanUserComponent {
     this.cleanForm.user_id = this.userData.user_id;
     this.cleanForm.description = "";
     this.cleanForm.sub_phone = "";
+    this.cleanForm.room_id = this.userData.room_id;
+
   }
 
 

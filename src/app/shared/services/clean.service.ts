@@ -18,8 +18,8 @@ export class CleanService {
     return await this.socket.fromEvent<ResponseData>('all_clean_data');
   }
 
-  async emitCleanData(user_id:number){
-    return this.socket.emit('get_clean_data',(user_id));
+  async emitCleanData(user_id:number,room_id:number){
+    return this.socket.emit('get_clean_data',(user_id),(room_id));
   }
 
   async onCleanData(){

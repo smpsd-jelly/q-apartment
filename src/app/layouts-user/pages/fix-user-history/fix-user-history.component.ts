@@ -31,7 +31,7 @@ export class FixUserHistoryComponent implements OnInit, AfterViewInit {
 
   async emitData() {
     console.log(this.userData.user_id);
-    await this.fixSrv.emitFixData(this.userData.user_id);
+    await this.fixSrv.emitFixData(this.userData.user_id, this.userData.room_id);
   }
 
   async onData() {

@@ -18,9 +18,38 @@
     }
 }
 
+.btn-link {
+    font-size: 12pt;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #FF7F50;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 2px solid #FF7F50;
+margin-right: 5%;
+
+    &:hover {
+        color: #FF7F50;
+        background-color: #FFFFFF;
+    }
+}
+
 @media only screen and (max-width: 992px) {
     .form-center {
         display: flex;
         justify-content: center;
+    }
+}
+
+.btn-back{
+border: none;    
+background:none;
+color: gray;
+    text-decoration: none;
+    margin-left: 5%;
+    &:hover{
+        color: rgb(43, 43, 43);
     }
 }

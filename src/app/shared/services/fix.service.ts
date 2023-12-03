@@ -18,8 +18,8 @@ export class FixService {
     return await this.socket.fromEvent<ResponseData>('all_fix_data');
   }
 
-  async emitFixData(user_id:number){
-    return this.socket.emit('get_fix_data',(user_id));
+  async emitFixData(user_id:number,room_id:number){
+    return this.socket.emit('get_fix_data',(user_id),(room_id));
   }
 
   async onFixData(){

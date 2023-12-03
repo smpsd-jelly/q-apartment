@@ -194,3 +194,13 @@ table {
 .text-status-color3{
     color: #009B35;
 }
+
+.text-bills-color-status1{
+    font-weight: bold;
+    color: #B60000;
+}
+
+.text-bills-color-status2{
+    font-weight: bold;
+    color: #C8C8C8;
+}

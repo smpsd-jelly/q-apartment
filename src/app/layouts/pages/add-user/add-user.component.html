@@ -1,0 +1,42 @@
+<div class="row p-0 pt-5 mt-5">
+    <div class="d-flex justify-content-center text-title mt-5 mb-2">{{title}}</div>
+    <div class="content ">
+        <div class="fontdefult mb-2">Username <span class="text-danger" *ngIf="!registerForm.username">*</span>
+        </div>
+        <div class="input-group mb-4 formSize">
+            <input type="text" class="form-control fontInForm" placeholder="กรอก username" name="itemName"
+                [(ngModel)]="registerForm.username">
+        </div>
+        <div class="fontdefult mb-2">Password <span class="text-danger" *ngIf="!registerForm.password">*</span>
+        </div>
+        <div class="input-group mb-4 formSize">
+            <input type="password" class="form-control fontInForm" placeholder="กรอก password"
+                [(ngModel)]="registerForm.password">
+        </div>
+        <div class="fontdefult mb-2">ยืนยัน Password <span class="text-danger" *ngIf="!registerForm.password2">*</span>
+        </div>
+        <div class="input-group mb-4 formSize">
+            <input type="password" class="form-control fontInForm" placeholder="กรอก password"
+                [(ngModel)]="registerForm.password2">
+        </div>
+        <div class="fontdefult mb-2">เบอร์โทรที่ติดต่อได้ <span class="text-danger"
+                *ngIf="!registerForm.phone_num">*</span></div>
+        <div class="input-group mb-4 formSize">
+            <input type="text" maxlength="10" class="form-control fontInForm" placeholder="กรอก เบอร์โทร"
+                [(ngModel)]="registerForm.phone_num">
+        </div>
+        <div class="fontdefult mb-2">ห้อง <span class="text-danger" *ngIf="!registerForm.room_id">* </span>
+            
+        </div>
+        <div class="input-group mb-4 formSize">
+            <select class="form-select" [(ngModel)]="registerForm.room_id">
+                <option value="">เลือกห้อง</option>
+                <option *ngFor="let item of roomData" [value]="item.room_id">{{item.room_num}}</option>
+            </select>
+        </div>
+       
+    </div> <div class="d-flex flex-colum justify-content-center"> <button type="button" class="btn btn-confirm loginBtn mt-4 mb-3"
+                (click)="confirmBtn()"><i class="fa-solid fa-check"></i>
+                Confirm</button>
+        </div>
+</div>

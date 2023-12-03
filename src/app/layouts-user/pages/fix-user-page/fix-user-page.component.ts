@@ -53,5 +53,6 @@ initialForm() {
   this.fixForm.area = "";
   this.fixForm.description = "";
   this.fixForm.sub_phone = "";
+  this.fixForm.room_id = this.userData.room_id;
 }
 }

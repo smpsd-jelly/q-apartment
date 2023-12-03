@@ -1,0 +1,97 @@
+.content {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 2.5rem;
+}
+
+.font-month {
+    font-size: 13pt;
+    font-weight: bold;
+}
+
+.font-month2 {
+    color: #FF7F50;
+}
+
+.box-month {
+    border: 3px solid #FFA07A;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    &:hover, :active, :focus{
+        background-color: #FFA07A;
+        color: #000000;
+    }
+}
+
+
+.text-bold-in-box {
+    font-weight: bold;
+}
+
+.back-btn{
+    color: gray;
+    cursor: pointer;
+    &:hover{
+        color: #FF7F50;
+    }
+}
+
+.box-detail {
+    border: 3px solid #DCDCDC;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+@media only screen and (max-width: 535px) {
+    .content {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .content {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+}
+
+.btn-confirm2{
+    width: 100% !important;
+}
+
+.custom-file-input {
+    color: transparent;
+  }
+  .custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: '\f093          Choose a file';
+    color: black;
+    display: inline-block;
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+    width: 60%;
+  }
+
+  .custom-file-input:active {
+    outline: 0;
+  }
+  .custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+  }
+  

@@ -7,6 +7,8 @@ import { LayoutsUserRoutingModule } from './layouts-user-routing.module';
 
 @NgModule({
   declarations: [
+  
+    
   ],
   imports: [
     CommonModule,

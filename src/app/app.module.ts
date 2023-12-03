@@ -31,6 +31,9 @@ import { PaymentUserComponent } from './layouts-user/pages/payment-user/payment-
 import { RegisterComponent } from './register/register.component';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { environment } from 'src/environments/environment';
+import { AddUserComponent } from './layouts/pages/add-user/add-user.component';
+import { AllElectricityMeterComponent } from './layouts/pages/all-electricity-meter/all-electricity-meter.component';
+import { PaymentInfoUserComponent } from './layouts-user/pages/payment-info-user/payment-info-user.component';
 
 const config: SocketIoConfig = { url: environment.socketEndpoint, options: {} }
 
@@ -52,7 +55,9 @@ const config: SocketIoConfig = { url: environment.socketEndpoint, options: {} }
     CleanUserHistoryComponent,
     FixUserHistoryComponent,
     RegisterComponent,
-
+    AddUserComponent,
+    AllElectricityMeterComponent,
+    PaymentInfoUserComponent,
   ],
   imports: [
     BrowserModule,

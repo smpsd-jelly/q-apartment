@@ -3,49 +3,52 @@
 
     <div class="serach-menu">
         <div class="row d-flex serach-menu2">
-            <div class="col-lg-auto col-md-12  col-sm-12 col-12  mb-3 margin-search search-md-center">
-                <label class="text-in-content mt-2 me-3">เลือกเดือน</label>
-                <label><input class="form-control" type="month"></label>
-            </div>
-        </div>
-        <div class="row d-flex serach-menu2">
             <div class="col-lg-auto col-md-12  col-sm-12 col-12   margin-search search-md-center">
-                <button class="button-building me-3" routerLink="/addDrug">
+                <button class="button-building me-3" (click)="clearFilterBuilding()">
+                    ทั้งหมด</button>
+                <button class="button-building me-3" (click)="filterBuilding1()">
                     ตึก 1</button>
-                <button class="button-building me-3" routerLink="/addImgDrug">
+                <button class="button-building me-3" (click)="filterBuilding2()">
                     ตึก 2</button>
-                <button class="button-building" routerLink="/addImgDrug">
+                <button class="button-building" (click)="filterBuilding3()">
                     ตึก 3</button>
             </div>
             <div class="d-flex col-lg-auto col-md-auto col-sm-12 col-auto margin-search search-md-end">
                 <label class="text-in-content mt-2 me-3">สถานะ</label>
-                <label><select class="form-select" aria-label="Default select example">
-                        <option selected>เลือกสถานะ</option>
-                        <option value="1">รอดำเนินการ</option>
-                        <option value="2">กำลังดำเนินการ</option>
-                        <option value="3">เสร็จสิ้น</option>
+                <label><select class="form-select" [(ngModel)]="status" (change)="selectStatus()">
+                        <option value="0">เลือกสถานะ</option>
+                        <option value="1">ค้างชำระ</option>
+                        <option value="2">ชำระแล้ว</option>
                     </select></label>
             </div>
 
             <div class="d-flex col-lg-auto col-md-auto col-sm-12 col-auto margin-search search-md-end">
-                <label class="text-in-content mt-2 me-3">ค้นหา ห้อง</label>
-                <div><input class="form-control" type="text" placeholder="ระบุเลขห้อง">
+                <label class="text-in-content mt-2 me-3">เลือกเดือน</label>
+                <label><input class="form-control" type="month" name="month" [(ngModel)]="month"></label>
+            </div>
+
+            <div class="d-flex col-lg-auto col-md-auto col-sm-12 col-auto margin-search search-md-end">
+                <label class="text-in-content mt-2 me-3" >ค้นหา ห้อง</label>
+                <div><input class="form-control" type="text" placeholder="ระบุเลขห้อง" [(ngModel)]="room"
+                        (keyup)="searchRoom()">
                 </div>
             </div>
 
             <div class="col-lg-auto col-auto col-md-12 col-sm-12 col-12 margin-search  text-center">
 
-                <button class="button-search ms-3 margin-search-1"><i class="fa-solid fa-magnifying-glass"></i>
+                <button class="button-search ms-3 margin-search-1" (click)="searchRoom()"><i
+                        class="fa-solid fa-magnifying-glass"></i>
                     ค้นหา</button>
             </div>
         </div>
-    </div>
 
     <div class="content">
         <div class="table-responsive table-max-height">
             <table class="table table-striped  table-bordered mt-4 table-scroll">
                 <thead>
                     <tr style="text-align: center;">
+                        <th scope="col" style="width: 5%;">เดือน</th>
+                        <th scope="col" style="width: 3%;">ตึก</th>
                         <th scope="col" style="width: 6%;">ห้อง</th>
                         <th scope="col" style="width: 10%;">ค่าใช้จ่าย</th>
                         <th scope="col" style="width: 10%;">วันเวลาที่แจ้งชำระเงิน</th>
@@ -55,24 +58,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of allPaymentInfo">
-                        <td class="align-items-center">{{item.room}}</td>
-                        <td>{{item.expenses}}</td>
-                        <td>{{item.date}}</td>
-                        <td>คลิ๊กดูสลิปการชำระเงิน</td>
-                        <td>{{item.status}}</td>
-                        <td class="text-center"><button class="button-search button-update">
-                                อัพเดทสถานะ</button></td>
+                    <tr *ngFor="let item of billsData">
+                        <td>เดือน</td>
+                        <td class="text-center">ตึก{{item.building}}</td>
+                        <td class="text-center">{{item.room_num}}</td>
+                        <td>{{calculateTotal(calculateElectric(item.electric_used),calculateWater(item.water_used),calculateClean(item.clean_count),calculateRent(item.rent))}}</td>
+                        <td></td>
+                        <td class="text-center">คลิ๊กดูสลิปการชำระเงิน</td>
+                        <td class="text-center"> <p [ngClass]="{'text-bills-color-status1':item.bills_state_id == 1,
+                            'text-bills-color-status2':item.bills_state_id == 2}">
+                                {{item.bills_state_name}}</p></td>
+                        <td class="text-center"><button class="button-search button-update" (click)="updateState(item)" *ngIf="item.bills_state_id<2">
+                            อัพเดทสถานะ</button></td>
                     </tr>
+                   
                 </tbody>
             </table>
 
         </div>
 
-        <div class="d-flex justify-content-center p-2 mt-2 a">
+        <!-- <div class="d-flex justify-content-center p-2 mt-2 a">
             <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
                 (pageChange)="chagnePageFix()"></ngb-pagination>
-        </div>
+        </div> -->
 
     </div>
 </div>

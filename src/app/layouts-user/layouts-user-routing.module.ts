@@ -5,6 +5,7 @@ import { FixUserHistoryComponent } from './pages/fix-user-history/fix-user-histo
 import { CleanUserComponent } from './pages/clean-user/clean-user.component';
 import { CleanUserHistoryComponent } from './pages/clean-user-history/clean-user-history.component';
 import { PaymentUserComponent } from './pages/payment-user/payment-user.component';
+import { PaymentInfoUserComponent } from './pages/payment-info-user/payment-info-user.component';
 
 
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'clean-user', component: CleanUserComponent },
   { path: 'clean-user-history', component: CleanUserHistoryComponent },
   { path: 'payment-user', component: PaymentUserComponent },
+  { path: 'payment-info-user', component: PaymentInfoUserComponent },
 ];
 
 @NgModule({

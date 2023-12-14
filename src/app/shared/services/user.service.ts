@@ -29,22 +29,40 @@ export class UserService {
 
 
     console.log(result.msg)
+
     if (result.status === 200) {
       window.localStorage.setItem('userData', JSON.stringify(result.msg));
-      if (!result.msg.admin) {
+      console.log(result.msg.first_login);
+      if (!result.msg.admin && !result.msg.first_login) {
         this.swalSrv.successAlert({ title: "Success", text: "กำลังเข้าสู่ระบบ" });
         setTimeout(() => {
-          this.router.navigate(['/user/fix-user']);
+          this.router.navigate(['/change-pass']);
         }, 2000);
         return
       }
-      this.swalSrv.successAlert({ title: "Success", text: "กำลังเข้าสู่ระบบแอดมิน" });
-      setTimeout(() => {
-        this.router.navigate(['/admin/home']);
-          this.swalSrv.loadingAlert({timer: 600});
-        
-      }, 2000);
-    }else{
+      else if (!result.msg.admin && result.msg.first_login) {
+        this.swalSrv.successAlert({ title: "Success", text: "กำลังเข้าสู่ระบบ" });
+        setTimeout(() => {
+          this.router.navigate(['/welcome-user']);
+        }, 2000);
+        return
+      }
+      else if (result.msg.admin) {
+        this.swalSrv.successAlert({ title: "Success", text: "กำลังเข้าสู่ระบบแอดมิน" });
+        setTimeout(() => {
+          this.router.navigate(['/admin/home']);
+          this.swalSrv.loadingAlert({ timer: 600 });
+        }, 2000);
+        return
+      }
+
+      // this.swalSrv.successAlert({ title: "Success", text: "กำลังเข้าสู่ระบบแอดมิน" });
+      // setTimeout(() => {
+      //   this.router.navigate(['/admin/home']);
+      //   this.swalSrv.loadingAlert({ timer: 600 });
+      // }, 2000);
+
+    } else {
       this.swalSrv.warningAlert({ text: "Username หรือ Password ไม่ถูกต้อง โปรดลองอีกครั้ง" });
 
     }
@@ -56,6 +74,29 @@ export class UserService {
       return {} as User;
     }
     return JSON.parse(data)
+  }
+
+  checkUserData() {
+    const data = window.localStorage.getItem('userData')
+    if (!data) {
+      return false;
+    }
+    return JSON.parse(data)
+  }
+
+  async updatePasswordData(data:User) {
+
+    this.socket.emit('update_password_data', (data));
+    const result = await this.socket.fromOneTimeEvent<ResponseData>('res_password_data')
+    console.log(result.msg)
+  }
+
+  async emitAllUserData(){
+    return this.socket.emit('get_all_user_data');
+  }
+
+  async onAllUserData(){
+    return await this.socket.fromEvent<ResponseData>('all_user_data');
   }
 
   logout() {

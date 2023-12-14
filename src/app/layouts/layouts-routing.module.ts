@@ -7,6 +7,7 @@ import { PaymentComponent } from './pages/payment/payment.component';
 import { ElectricityMeterComponent } from './pages/electricity-meter/electricity-meter.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { AllElectricityMeterComponent } from './pages/all-electricity-meter/all-electricity-meter.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
 
 const routes: Routes = [
   { path: 'home', component: AdminHomepageComponent },
@@ -15,7 +16,9 @@ const routes: Routes = [
   { path: 'clean-page', component: CleanPageComponent },
   { path: 'payment-page', component: PaymentComponent },
   { path: 'meter-page', component: ElectricityMeterComponent },
+  { path: 'meter-page/:ID', component: ElectricityMeterComponent },
   { path: 'add-user', component: AddUserComponent },
+  { path: 'user-list', component: UserListComponent},
   { path: 'all-meter', component: AllElectricityMeterComponent },
 ];
 

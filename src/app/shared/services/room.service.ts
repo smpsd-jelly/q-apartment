@@ -16,4 +16,12 @@ export class RoomService {
   async onRoomData(){
     return await this.socket.fromOneTimeEvent<ResponseData>('room_data');
   }
+
+  async emitAllRoomData(){
+    return this.socket.emit('get_all_room_data');
+  }
+
+  async onAllRoomData(){
+    return await this.socket.fromOneTimeEvent<ResponseData>('all_room_data');
+  }
 }

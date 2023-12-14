@@ -1,0 +1,60 @@
+<div class="row p-0 pt-5 mt-5">
+    <div class="d-flex justify-content-center text-title mt-5">{{title}}</div>
+
+    <div class="serach-menu">
+        <div class="row  d-flex justify-content-end">
+            <div class="col-auto">
+                <button class="button-building me-3 mb-4" routerLink="/admin/add-user">
+                    <i class="fa-solid fa-plus"></i> เพิ่มผู้พักอาศัย</button>
+            </div>
+
+        </div>
+        <div class="row d-flex serach-menu2">
+
+            <div class="d-flex col-lg-auto col-md-auto col-sm-12 col-auto margin-search search-md-end">
+                <label class="text-in-content mt-2 me-3">ค้นหา ห้อง</label>
+                <div><input class="form-control" type="text" placeholder="ระบุเลขห้อง" [(ngModel)]="room"
+                        (keyup)="searchRoom()">
+                </div>
+            </div>
+
+            <div class="col-lg-auto col-auto col-md-12 col-sm-12 col-12 margin-search  text-center">
+
+                <button class="button-search ms-3 margin-search-1"><i class="fa-solid fa-magnifying-glass"
+                        (click)="searchRoom()"></i>
+                    ค้นหา</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="table-responsive table-max-height">
+                <table class="table table-striped  table-bordered mt-4 table-scroll">
+                    <thead>
+                        <tr style="text-align: center;">
+                            <th scope="col" style="width: 4%;">ตึก</th>
+                            <th scope="col" style="width: 5%;">ห้อง</th>
+                            <th scope="col" style="width: 10%;">Username</th>
+                            <th scope="col" style="width: 10%;">สร้างโดย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of userData">
+                            <td class="text-center">ตึก {{item.building}}</td>
+                            <td class="text-center">{{item.room_num}}</td>
+                            <td>{{item.username}}</td>
+                            <td>{{item.created_by_username}}</td>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="d-flex justify-content-center p-2 mt-2 mb-5 a">
+                <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                    (pageChange)="chagnePageBills()"></ngb-pagination>
+            </div>
+
+        </div>
+    </div>

@@ -16,4 +16,7 @@ export interface Bills {
     bills_state_name: string;
     bills_state_id: number;
     rent:number;
+    // date: any;
+    // slip_time: any;
+    // img_url: any
 }

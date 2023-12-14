@@ -15,8 +15,7 @@ export class PaymentUserComponent {
   title = 'ค่าใช้จ่าย';
   paymentAll = true;
   paymentDetail = false;
-
-  // bills: Bills = {} as Bills;
+  bills!: Bills;
   billsData!: Bills[];
   _billsData!: Bills[];
 
@@ -29,15 +28,17 @@ export class PaymentUserComponent {
   clickToPaymentAll() {
     this.paymentAll = true;
     this.paymentDetail = false;
+    this.bills = {} as Bills;
   }
-  clickToPaymentDetail() {
+  clickToPaymentDetail(index:number) {
     this.paymentAll = false;
     this.paymentDetail = true;
+    this.bills = this.billsData[index];
   }
-  clickToPaymentSlip() {
-    this.router.navigate(['/user/payment-info-user']);
+  clickToPaymentSlip(index:number,month_year:any) {
+    this.router.navigate(['/user/payment-info-user',index,month_year]);
+
   }
-  
 
   async ngOnInit() {
     await this.onData();

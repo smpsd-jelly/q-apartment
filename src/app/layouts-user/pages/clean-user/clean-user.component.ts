@@ -40,7 +40,7 @@ export class CleanUserComponent {
   }
 
   CheckInput(): boolean{
-    if(!this.cleanForm.description || !this.cleanForm.sub_phone){
+    if( !this.cleanForm.sub_phone){
       return false
       // ใส่เงื่อนไขให้หมด
     }

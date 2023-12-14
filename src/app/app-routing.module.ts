@@ -4,14 +4,18 @@ import { LayoutsComponent } from './layouts/layouts.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutsUserComponent } from './layouts-user/layouts-user.component';
 import { RegisterComponent } from './register/register.component';
+import { WelcomeUserComponent } from './welcome-user/welcome-user.component';
+import { ChangePasswordComponent } from './layouts/change-password/change-password.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'change-pass', component: ChangePasswordComponent , canActivate: [AuthGuard] },
+  { path: 'welcome-user', component: WelcomeUserComponent  , canActivate: [AuthGuard]},
   {
     path: 'admin',
-    component: LayoutsComponent,
+    component: LayoutsComponent,  canActivate: [AuthGuard],
     children: [{
       path: '',
       loadChildren: () => import('./layouts/layouts.module').then(m => m.LayoutsModule)
@@ -19,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    component: LayoutsUserComponent,
+    component: LayoutsUserComponent, canActivate: [AuthGuard],
     children: [{
       path: '',
       loadChildren: () => import('./layouts-user/layouts-user.module').then(m => m.LayoutsUserModule)

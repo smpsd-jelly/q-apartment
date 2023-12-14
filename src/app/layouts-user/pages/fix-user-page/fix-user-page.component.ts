@@ -40,7 +40,7 @@ async confirmBtn() {
 }
 
 CheckInput(): boolean{
-  if(!this.fixForm.area){
+  if(!this.fixForm.area || !this.fixForm.sub_phone){
     this.swalSrv.warningAlert({text:"กรุณากรอกข้อมูลที่มีสัญลักษณ์ * ให้ครบถ้วน"})
     return false
     // ใส่เงื่อนไขให้หมด

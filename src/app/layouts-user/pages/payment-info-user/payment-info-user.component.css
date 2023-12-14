@@ -51,12 +51,6 @@
 
 
 
-@media only screen and (max-width: 350px) {
-    .content {
-        margin-left: 1.5rem;
-        margin-right: 1.5rem;
-    }
-}
 
 .btn-confirm2 {
     width: 100% !important;
@@ -65,20 +59,10 @@
 
 
 .form-control {
-    /* width: 60%; */
     border: 0;
 }
 
-@media only screen and (max-width: 535px) {
-    .content {
-        margin-left: 2rem;
-        margin-right: 2rem;
-    }
 
-    /* .form-control{
-        width: 80%;
-      } */
-}
 
 input[type="file"]::file-selector-button {
     border-radius: 4px;
@@ -92,12 +76,10 @@ input[type="file"]::file-selector-button {
     transition: background-color 200ms;
 }
 
-/* file upload button hover state */
 input[type="file"]::file-selector-button:hover {
     background-color: #f3f4f6;
 }
 
-/* file upload button active state */
 input[type="file"]::file-selector-button:active {
     background-color: #e5e7eb;
 }
@@ -106,7 +88,7 @@ input[type="file"]::file-selector-button:active {
     box-shadow: none;
 }
 
-.btn-upload{
+.btn-upload {
     border-radius: 4px;
     padding: 0 16px;
     height: 40px;
@@ -115,20 +97,40 @@ input[type="file"]::file-selector-button:active {
     border: 1px solid rgba(0, 0, 0, 0.16);
     box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
 
-    &:hover{
+    &:hover {
         background-color: #FF7F50;
     }
 }
 
 
-
-.form-control2{
+.form-control2 {
     border: 3px solid #FF7F50;
-    width: auto;
+
 }
 
-.form-control2:focus
- {
-    border-color: #FF7F50;
-    box-shadow: 0 0 0 0.2rem rgba(255, 127, 80, 0.25);
+
+@media only screen and (max-width: 992px) {
+    .btn-upload {
+        width: 50% !important;
+        margin-top: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .content {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    .date-time-margin-top{
+        margin-top: 1rem;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .content {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
 }

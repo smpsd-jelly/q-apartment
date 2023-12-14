@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Socket } from 'ngx-socket-io';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
 
-  constructor() { }
+  constructor(private socket:Socket) { }
 
   async delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) )
+  }
+
+  async onTrigger(){
+    return this.socket.fromEvent('event_trigger');
   }
 
   getToday() {

@@ -6,16 +6,31 @@
             <img class="mt-2" src="../../../assets/img/logo2.png" alt="" width="45px"
                 style="vertical-align: top !important;">
             <span style="float: right;" class="mt-3 ">
-                <span class="me-3"><i class="fa-solid fa-bell" style="font-size: 14pt;"></i></span>
-                <span class="me-3"><i class="fa-solid fa-circle-user"></i> {{userInfo.username}}</span>
-                <span class="logout-btn" (click)="clickToLogout()"> <i class="fa-solid fa-right-from-bracket "></i> Logout</span>
+                <!-- <span class="me-3"><button type="button" class="btn-print" data-bs-toggle="modal"
+                        data-bs-target="#SendBackEditModal"><i class="fa-solid fa-bell"></i><span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill badge-danger">
+                            99+
+                            <span class="visually-hidden">unread messages</span>
+                        </span></button></span> -->
+                <span class="me-3 "><button type="button" class="btn-noti position-relative" data-bs-toggle="modal"
+                        data-bs-target="#notimodal">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{countNoti()}}
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button></span>
+                <span class="me-3 ms-3"><i class="fa-solid fa-circle-user"></i> {{userInfo.username}}</span>
+                <span class="logout-btn" (click)="clickToLogout()"> <i class="fa-solid fa-right-from-bracket "></i>
+                    Logout</span>
             </span>
         </mat-toolbar-row>
     </div>
     <mat-sidenav [(opened)]="opened" mode="over" class="ps-3 pt-4 pe-0">
         <app-sidebar></app-sidebar>
         <div>
-            <button class="button-close mt-5" (click)="opened = !opened"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="button-close mt-5" (click)="opened = !opened"><i
+                    class="fa-solid fa-chevron-left"></i></button>
         </div>
 
     </mat-sidenav>
@@ -25,3 +40,36 @@
     </div>
 
 </mat-sidenav-container>
+<div class="modal fade" id="notimodal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title  topic mt-2 mb-1 w-100 text-center">Notification</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped" >
+                    <thead>
+                        <tr>
+                            <th scope="col">ลำดับ</th>
+                            <th scope="col">แจ้งเตือน</th>
+                            <th scope="col">ห้อง</th>
+                            <th scope="col">ตึก</th>
+                            <th scope="col">รับทราบ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let items of notiInfo; index as i">
+                            <th scope="row" class="text-center">{{i+1}}</th>
+                            <td>{{items.noti_description}}</td>
+                            <td>{{items.room_num}}</td>
+                            <td>{{items.building}}</td>
+                            <td *ngIf="!items.read"><button class="btn-read" (click)="updateRead(items.noti_id)">อ่าน</button></td>
+                            <td *ngIf="items.read">รับทราบแล้ว</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

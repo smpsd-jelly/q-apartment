@@ -4,18 +4,22 @@
     <div class="serach-menu">
         <div class="row d-flex serach-menu2">
             <div class="col-lg-auto col-md-12  col-sm-12 col-12   margin-search search-md-center">
-                <button class="button-building me-3" (click)="clearFilterBuilding()">
+                <button class="button-building me-3" (click)="buildingSelect = 0" (click)="FilterBuilding(0)"
+                    [ngStyle]="buildingSelect == 0 ? {'background-color': 'white' , 'color' : 'black'} : {}">
                     ทั้งหมด</button>
-                <button class="button-building me-3" (click)="filterBuilding1()">
+                <button class="button-building me-3" (click)="buildingSelect = 1" (click)="FilterBuilding(1)"
+                    [ngStyle]="buildingSelect == 1 ? {'background-color': 'white' , 'color' : 'black'} : {}">
                     ตึก 1</button>
-                <button class="button-building me-3" (click)="filterBuilding2()">
+                <button class="button-building me-3" (click)="buildingSelect = 2" (click)="FilterBuilding(2)"
+                    [ngStyle]="buildingSelect == 2 ? {'background-color': 'white' , 'color' : 'black'} : {}">
                     ตึก 2</button>
-                <button class="button-building" (click)="filterBuilding3()">
+                <button class="button-building" (click)="buildingSelect = 3" (click)="FilterBuilding(3)"
+                    [ngStyle]="buildingSelect == 3 ? {'background-color': 'white' , 'color' : 'black'} : {}">
                     ตึก 3</button>
             </div>
             <div class="d-flex col-lg-auto col-md-auto col-sm-12 col-auto margin-search search-md-end">
                 <label class="text-in-content mt-2 me-3">สถานะ</label>
-                <label><select class="form-select" [(ngModel)]="status" (change)="selectStatus()">
+                <label><select class="form-select" [(ngModel)]="status" (change)="FilterBuilding(buildingSelect)">
                         <option value="0">เลือกสถานะ</option>
                         <option value="1">รอดำเนินการ</option>
                         <option value="2">กำลังดำเนินการ</option>
@@ -24,14 +28,22 @@
             </div>
 
             <div class="d-flex col-lg-auto col-md-auto col-sm-12 col-auto margin-search search-md-end">
+                <label class="text-in-content mt-2 me-3">เลือกวัน</label>
+                <label><input class="form-control" type="date" name="date" [(ngModel)]="date"
+                        (change)="FilterBuilding(buildingSelect)"></label>
+            </div>
+
+            <div class="d-flex col-lg-auto col-md-auto col-sm-12 col-auto margin-search search-md-end">
                 <label class="text-in-content mt-2 me-3">ค้นหา ห้อง</label>
-                <div><input class="form-control" type="text" placeholder="ระบุเลขห้อง" [(ngModel)]="room" (keyup)="searchRoom()">
+                <div><input class="form-control" type="text" placeholder="ระบุเลขห้อง" [(ngModel)]="room"
+                        (keyup)="FilterBuilding(buildingSelect)">
                 </div>
             </div>
 
             <div class="col-lg-auto col-auto col-md-12 col-sm-12 col-12 margin-search  text-center">
 
-                <button class="button-search ms-3 margin-search-1" (click)="searchRoom()"><i class="fa-solid fa-magnifying-glass"></i>
+                <button class="button-search ms-3 margin-search-1" (click)="FilterBuilding(buildingSelect)"><i
+                        class="fa-solid fa-magnifying-glass"></i>
                     ค้นหา</button>
             </div>
         </div>
@@ -44,9 +56,10 @@
                     <tr style="text-align: center;">
                         <th scope="col" style="width: 3%;">ตึก</th>
                         <th scope="col" style="width: 6%;">ห้อง</th>
-                        <th scope="col" style="width: 10%;">วันที่แจ้ง</th>
                         <th scope="col" style="width: 20%;">รายละเอียดเพิ่มเติม</th>
+                        <th scope="col" style="width: 10%;">วันที่แจ้ง</th>
                         <th scope="col" style="width: 10%;">เบอร์โทร</th>
+                        <th scope="col" style="width: 10%;">เบอร์โทรสำรอง</th>
                         <th scope="col" style="width: 10%;">สถานะ</th>
                         <th scope="col" style="width: 8%;">อัพเดทสถานะ</th>
                     </tr>
@@ -55,15 +68,17 @@
                     <tr *ngFor="let item of cleanData">
                         <td class="text-center">ตึก {{item.building}}</td>
                         <td class="text-center">{{item.room_num}}</td>
-                        <td>{{item.timestamp|date:'dd/MM/yyyy HH:mm'}} น.</td>
                         <td>{{item.description}}</td>
+                        <td>{{item.timestamp|date:'dd/MM/yyyy HH:mm'}} น.</td>
+                        <td>{{item.phone_num}}</td>
                         <td>{{item.sub_phone}}</td>
                         <td>
                             <p [ngClass]="{'text-status-color1':item.state_id == 1,
                             'text-status-color2':item.state_id == 2,'text-status-color3':item.state_id == 3}">
                                 {{item.state_name}}</p>
                         </td>
-                        <td class="text-center"><button class="button-search button-update" (click)="updateState(item)" *ngIf="item.state_id<3">
+                        <td class="text-center"><button class="button-search button-update" (click)="updateState(item)"
+                                *ngIf="item.state_id<3">
                                 อัพเดทสถานะ</button></td>
                     </tr>
                 </tbody>

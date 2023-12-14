@@ -9,6 +9,7 @@ import { LayoutsUserRoutingModule } from './layouts-user-routing.module';
   declarations: [
   
     
+  
   ],
   imports: [
     CommonModule,

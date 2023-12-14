@@ -17,6 +17,7 @@ export class FixUserHistoryComponent implements OnInit, AfterViewInit {
   fixData!: FixHistory[];
   userData!: User
 
+
   constructor(private router: Router, private swalSrv: SwalService, private fixSrv: FixService, private userSrv: UserService) {
     this.userData = this.userSrv.getUserData();
   }
@@ -30,7 +31,7 @@ export class FixUserHistoryComponent implements OnInit, AfterViewInit {
   }
 
   async emitData() {
-    console.log(this.userData.user_id);
+    console.log(this.userData.user_id, this.userData.room_id);
     await this.fixSrv.emitFixData(this.userData.user_id, this.userData.room_id);
   }
 

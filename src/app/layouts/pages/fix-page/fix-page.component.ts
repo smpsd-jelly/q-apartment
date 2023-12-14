@@ -15,13 +15,15 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class FixPageComponent {
   title = "ข้อมูลการแจ้งซ่อมแซม";
   page = 1;
-  pageSize = 30;
+  pageSize = 100;
   fixData!: FixHistory[];
   _fixData!: FixHistory[];
   userData!: User
   collectionSize = 0;
   status: number = 0;
   room = "";
+  buildingSelect: number = 0;
+  date: any;
 
   constructor(private router: Router, private swalSrv: SwalService, private fixSrv: FixService, private userSrv: UserService) {
     // this.chagnePageFix();
@@ -58,65 +60,46 @@ export class FixPageComponent {
   }
 
 
-  async updateState(data:FixHistory){
+  async updateState(data: FixHistory) {
     console.log(data);
     console.log(data.state_id);
-    this.swalSrv.confirmAlert({text:"ต้องการอัพเดทสถานะใช่หรือไม่"}).then(async( result) =>{
-      if(result.isConfirmed){
+    this.swalSrv.confirmAlert({ text: "ต้องการอัพเดทสถานะใช่หรือไม่" }).then(async (result) => {
+      if (result.isConfirmed) {
         data.state_id++;
         console.log(data.state_id);
-        this.swalSrv.successAlert({text:"อัพเดทสถานะเสร็จสิ้น"});
+        this.swalSrv.successAlert({ text: "อัพเดทสถานะเสร็จสิ้น" });
         await this.fixSrv.updateFixData(data);
-        setTimeout(() =>{
+        setTimeout(() => {
           window.location.reload();
-        },1000);
+        }, 1000);
       }
     })
   }
 
-  filterBuilding1() {
+  async FilterBuilding(building: number) {
     Object.assign(this.fixData, this._fixData)
-    this.fixData = this.fixData.filter((x) => {
-      return x.building == 1;
-    })
-  }
-
-  filterBuilding2() {
-    Object.assign(this.fixData, this._fixData)
-    this.fixData = this.fixData.filter((x) => {
-      return x.building == 2;
-    })
-  }
-
-  filterBuilding3() {
-    Object.assign(this.fixData, this._fixData)
-    this.fixData = this.fixData.filter((x) => {
-      return x.building == 3;
-    })
-  }
-
-  clearFilterBuilding() {
-    Object.assign(this.fixData, this._fixData)
-  }
-
-  selectStatus() {
-    Object.assign(this.fixData, this._fixData)
-    if (this.status == 0) {
-      return
+    if (building != 0) {
+      this.fixData = this.fixData.filter((x) => {
+        return x.building == building;
+      })
     }
-    this.fixData = this.fixData.filter((x) => {
-      return x.state_id == this.status;
-    })
-  }
-
-  searchRoom() {
-    Object.assign(this.fixData, this._fixData)
-    if (this.room == "") {
-      return
+    if (this.status != 0) {
+      this.fixData = this.fixData.filter((x) => {
+        return x.state_id == this.status;
+      })
     }
-    this.fixData = this.fixData.filter((x) => {
-      return x.room_num.includes(this.room) ;
-    })
+    if (this.room != "") {
+      this.fixData = this.fixData.filter((x) => {
+        return x.room_num.includes(this.room);
+      })
+    }
+    if(this.date){
+      this.fixData = this.fixData.filter((x) => {
+        return new Date(x.timestamp).getDate() == new Date(this.date).getDate() 
+        && new Date(x.timestamp).getMonth() == new Date(this.date).getMonth() 
+        &&new Date(x.timestamp).getFullYear() == new Date(this.date).getFullYear();
+      })
+    }
   }
 
 }

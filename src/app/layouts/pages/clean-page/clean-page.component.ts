@@ -15,7 +15,7 @@ export class CleanPageComponent {
   title = "ข้อมูลการแจ้งทำความสะอาด";
   // allCleanInfo: clean[] = CLEANINFO;
   page = 1;
-  pageSize = 30;
+  pageSize = 100;
 
   cleanData!: CleanHistory[];
   _cleanData!: CleanHistory[];
@@ -23,6 +23,8 @@ export class CleanPageComponent {
   status: number = 0;
   room = "";
   userData!: User
+  buildingSelect: number = 0;
+  date: any;
 
   constructor(private router: Router, private swalSrv: SwalService, private userSrv: UserService, private cleanSrv: CleanService) {
     this.userData = this.userSrv.getUserData();
@@ -72,49 +74,28 @@ export class CleanPageComponent {
     );
   }
 
-  filterBuilding1() {
+  async FilterBuilding(building: number) {
     Object.assign(this.cleanData, this._cleanData)
-    this.cleanData = this.cleanData.filter((x) => {
-      return x.building == 1;
-    })
-  }
-
-  filterBuilding2() {
-    Object.assign(this.cleanData, this._cleanData)
-    this.cleanData = this.cleanData.filter((x) => {
-      return x.building == 2;
-    })
-  }
-
-  filterBuilding3() {
-    Object.assign(this.cleanData, this._cleanData)
-    this.cleanData = this.cleanData.filter((x) => {
-      return x.building == 3;
-    })
-  }
-
-  clearFilterBuilding() {
-    Object.assign(this.cleanData, this._cleanData)
-  }
-
-  selectStatus() {
-    Object.assign(this.cleanData, this._cleanData)
-    if (this.status == 0) {
-      return
+    if (building != 0) {
+      this.cleanData = this.cleanData.filter((x) => {
+        return x.building == building;
+      })
     }
-    this.cleanData = this.cleanData.filter((x) => {
-      return x.state_id == this.status;
-    })
-  }
-
-  searchRoom() {
-    Object.assign(this.cleanData, this._cleanData)
-    if (this.room == "") {
-      return
+    if (this.status != 0) {
+      this.cleanData = this.cleanData.filter((x) => {
+        return x.state_id == this.status;
+      })
     }
-    this.cleanData = this.cleanData.filter((x) => {
-      return x.room_num.includes(this.room) ;
-    })
+    if (this.room != "") {
+      this.cleanData = this.cleanData.filter((x) => {
+        return x.room_num.includes(this.room);
+      })
+    }
+    if(this.date != ""){
+      this.cleanData = this.cleanData.filter((x) => {
+        return x.timestamp.getDate() == this.date.getDate() && x.timestamp.getMonth() == this.date.getMonth() && x.timestamp.getFullYear() == this.date.getFullYear();
+      })
+    }
   }
 
 

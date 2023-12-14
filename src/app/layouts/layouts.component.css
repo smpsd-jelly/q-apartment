@@ -82,3 +82,35 @@ mat-sidenav {
     }
 }
 
+.topic {
+    font-weight: bold;
+}
+
+thead,
+table,
+th,
+td {
+    border: none !important;
+}
+
+.btn-noti {
+    background: none;
+    border: none !important;
+
+    &:hover,
+    :active,
+    :focus {
+        color: white;
+    }
+}
+
+.btn-read{
+    border: 2px solid #FF7F50;
+    border-radius: 10px;
+    background-color: #FF7F50;
+    color: white;
+    &:hover{
+        background-color: white;
+        color: #FF7F50;
+    }
+}

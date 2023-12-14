@@ -48,4 +48,19 @@ export class BillsService {
     return await this.socket.fromOneTimeEvent<ResponseData>('res_uplode_imgae_data')
   }
 
+  // async insertBillsData(data:Bills){
+    
+  //   this.socket.emit('',(data));
+  
+  //   const result = await this.socket.fromOneTimeEvent<ResponseData>('')
+  //   console.log(result.msg)
+  // }
+
+
+  async insertBillsData(billsData: Bills[],user_id:number): Promise<ResponseData> {
+    await this.socket.emit('insert_data_bills', (billsData),(user_id));
+    return await this.socket.fromOneTimeEvent<ResponseData>('res_data_bills').then((response) => {
+      return response;
+    });
+  }
 }

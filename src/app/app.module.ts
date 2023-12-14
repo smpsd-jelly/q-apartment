@@ -34,6 +34,9 @@ import { environment } from 'src/environments/environment';
 import { AddUserComponent } from './layouts/pages/add-user/add-user.component';
 import { AllElectricityMeterComponent } from './layouts/pages/all-electricity-meter/all-electricity-meter.component';
 import { PaymentInfoUserComponent } from './layouts-user/pages/payment-info-user/payment-info-user.component';
+import { WelcomeUserComponent } from './welcome-user/welcome-user.component';
+import { ChangePasswordComponent } from './layouts/change-password/change-password.component';
+import { UserListComponent } from './layouts/pages/user-list/user-list.component';
 
 const config: SocketIoConfig = { url: environment.socketEndpoint, options: {} }
 
@@ -58,6 +61,9 @@ const config: SocketIoConfig = { url: environment.socketEndpoint, options: {} }
     AddUserComponent,
     AllElectricityMeterComponent,
     PaymentInfoUserComponent,
+    WelcomeUserComponent,
+    ChangePasswordComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

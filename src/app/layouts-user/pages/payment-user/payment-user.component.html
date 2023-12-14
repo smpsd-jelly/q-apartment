@@ -4,12 +4,12 @@
 <hr class="mt-4">
 <div class="content ">
     <span *ngIf="paymentAll">
-        <div *ngIf="billsData">
+        <div *ngIf="billsData && billsData.length > 0">
             <div>
-                <div class="font-month">เดือน กุมภาพันธ์</div>
-                <div *ngFor="let item of billsData">
-                    <div class="box-month mt-3 " (click)="clickToPaymentDetail()">
-                        <div>ค่าใช้จ่ายเดือน กุมภาพันธ์</div>
+                <!-- <div class="font-month">เดือน กุมภาพันธ์</div> -->
+                <div *ngFor="let item of billsData; let i = index">
+                    <div class="box-month mt-3 " (click)="clickToPaymentDetail(i)">
+                        <div>ค่าใช้จ่ายเดือน {{item.month_year | date:'MMMM yyyy'}}</div>
                         <div class="text-bold-in-box">
                             {{calculateTotal(calculateElectric(item.electric_used),calculateWater(item.water_used),calculateClean(item.clean_count),calculateRent(item.rent))}}
                             บาท</div>
@@ -22,62 +22,66 @@
                 </div>
             </div>
         </div>
+        <div *ngIf="!billsData || billsData.length === 0">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="text-label-bold mt-5 mb-5">ไม่มีประวัติค่าใช้จ่าย </div>
+            </div>
+        </div>
     </span>
     <span *ngIf="paymentDetail">
         <!-- <span *ngIf="true"> -->
         <div>
             <div class="back-btn" (click)="clickToPaymentAll()"> <i class="fa-solid fa-chevron-left"></i> ย้อนกลับ
             </div>
-            <div *ngFor="let item of billsData">
-                <div class="font-month font-month2 mt-4 d-flex justify-content-center">
-                    ค่าใช้จ่ายเดือน กุมภาพันธ์</div>
-                <div class="font-month mt-5">ค่าเช่าห้อง</div>
-                <div class="box-detail mt-3">
-                    <div class="d-flex justify-content-end">รวม <span class="text-bold-in-box ms-2 me-2"> {{item.rent}}
-                        </span>บาท
-                    </div>
-                </div>
-                <div class="font-month mt-5">ค่าไฟ</div>
-                <div class="box-detail mt-3">
-                    <div>มิเตอร์ </div>
-                    <div class="mb-2">{{item.electric_current}} - {{item.electric_lastmonth}} = {{item.electric_used}}
-                        ยูนิต</div>
-                    <div class="mb-3">ราคายูนิต / หน่วย 6.50 บาท</div>
-                    <div class="d-flex justify-content-end">รวม <span class="text-bold-in-box ms-2 me-2">
-                            {{calculateElectric(item.electric_used)}}
-                        </span>บาท
-                    </div>
-                </div>
-                <div class="font-month mt-5">ค่าน้ำประปา</div>
-                <div class="box-detail mt-3">
-                    <div>มิเตอร์ </div>
-                    <div class="mb-2">{{item.water_current}} - {{item.water_lastmonth}} = {{item.water_used}} ยูนิต
-                    </div>
-                    <div class="mb-3">ราคายูนิต / หน่วย 35 บาท</div>
-                    <div class="d-flex justify-content-end">รวม <span class="text-bold-in-box ms-2 me-2">
-                            {{calculateWater(item.water_used)}} </span>บาท
-                    </div>
-                </div>
-                <div class="font-month mt-5">ค่าจ้างทำความสะอาด</div>
-                <div class="box-detail mt-3">
-                    <div class="mb-2">จ้าง {{item.clean_count}} รอบ</div>
-                    <div class="mb-3">รอบละ 200 บาท</div>
-                    <div class="d-flex justify-content-end">รวม <span class="text-bold-in-box ms-2 me-2">
-                            {{calculateClean(item.clean_count)}} </span>บาท
-                    </div>
-                </div>
-
-
-                <div class=" mt-5 pt-2 d-flex justify-content-center mb-5 pb-3">
-                    <div class="font-month">ทั้งหมด <span
-                            class="text-danger ms-2 me-2">{{calculateTotal(calculateElectric(item.electric_used),calculateWater(item.water_used),calculateClean(item.clean_count),calculateRent(item.rent))}}
-                        </span>บาท </div>
+            <div class="font-month font-month2 mt-4 d-flex justify-content-center">
+                ค่าใช้จ่ายเดือน {{bills.month_year | date:'MMMM yyyy'}}</div>
+            <div class="font-month mt-5">ค่าเช่าห้อง</div>
+            <div class="box-detail mt-3">
+                <div class="d-flex justify-content-end">รวม <span class="text-bold-in-box ms-2 me-2"> {{bills.rent}}
+                    </span>บาท
                 </div>
             </div>
+            <div class="font-month mt-5">ค่าไฟ</div>
+            <div class="box-detail mt-3">
+                <div>มิเตอร์ </div>
+                <div class="mb-2">{{bills.electric_current}} - {{bills.electric_lastmonth}} = {{bills.electric_used}}
+                    ยูนิต</div>
+                <div class="mb-3">ราคายูนิต / หน่วย 6.50 บาท</div>
+                <div class="d-flex justify-content-end">รวม <span class="text-bold-in-box ms-2 me-2">
+                        {{calculateElectric(bills.electric_used)}}
+                    </span>บาท
+                </div>
+            </div>
+            <div class="font-month mt-5">ค่าน้ำประปา</div>
+            <div class="box-detail mt-3">
+                <div>มิเตอร์ </div>
+                <div class="mb-2">{{bills.water_current}} - {{bills.water_lastmonth}} = {{bills.water_used}} ยูนิต
+                </div>
+                <div class="mb-3">ราคายูนิต / หน่วย 35 บาท</div>
+                <div class="d-flex justify-content-end">รวม <span class="text-bold-in-box ms-2 me-2">
+                        {{calculateWater(bills.water_used)}} </span>บาท
+                </div>
+            </div>
+            <div class="font-month mt-5">ค่าจ้างทำความสะอาด</div>
+            <div class="box-detail mt-3">
+                <div class="mb-2">จ้าง {{bills.clean_count}} รอบ</div>
+                <div class="mb-3">รอบละ 200 บาท</div>
+                <div class="d-flex justify-content-end">รวม <span class="text-bold-in-box ms-2 me-2">
+                        {{calculateClean(bills.clean_count)}} </span>บาท
+                </div>
+            </div>
+
+
+            <div class=" mt-5 pt-2 d-flex justify-content-center mb-5 pb-3">
+                <div class="font-month">ทั้งหมด <span
+                        class="text-danger ms-2 me-2">{{calculateTotal(calculateElectric(bills.electric_used),calculateWater(bills.water_used),calculateClean(bills.clean_count),calculateRent(bills.rent))}}
+                    </span>บาท </div>
+            </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="bills.bills_state_id == 1">
             <div class="col-12">
-                <div class="d-flex justify-content-center align-items-center mb-5 pb-5" (click)="clickToPaymentSlip()">
+                <div class="d-flex justify-content-center align-items-center mb-5 pb-5"
+                    (click)="clickToPaymentSlip(bills.index,bills.month_year)">
                     <button class="btn-confirm2"><i class="fa-solid fa-chevron-right me-2"></i>
                         รายละเอียดการชำระเงิน</button>
                 </div>

@@ -27,6 +27,12 @@
 }
 
 
+.text-label-bold {
+    font-size: 13pt;
+    font-weight: bold;
+}
+
+
 .text-bold-in-box {
     font-weight: bold;
 }

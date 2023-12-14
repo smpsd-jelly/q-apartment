@@ -4,7 +4,7 @@ body {
 }
 
 
-body {
+body, * {
     margin: 0;
     font-family: 'Prompt', 'FontAwesome' !important;
 }
@@ -154,7 +154,7 @@ table {
 }
 
 .table-max-height {
-    max-height: 800px !important;
+    max-height: 1500px !important;
 }
 
 .btn-confirm2 {
@@ -184,14 +184,17 @@ table {
 }
 
 .text-status-color1{
+    font-weight: bold;
     color: #B60000;
 }
 
 .text-status-color2{
+    font-weight: bold;
     color: #CA9F08;
 }
 
 .text-status-color3{
+    font-weight: bold;
     color: #009B35;
 }
 
@@ -201,6 +204,11 @@ table {
 }
 
 .text-bills-color-status2{
+    font-weight: bold;
+    color: #009B35;
+}
+
+.text-bills-color-status3{
     font-weight: bold;
     color: #C8C8C8;
 }

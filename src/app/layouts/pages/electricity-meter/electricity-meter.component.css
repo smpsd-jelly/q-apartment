@@ -9,6 +9,15 @@
     font-size: 13pt;
 }
 
+.text-bold {
+    font-size: 13pt;
+    font-weight: bold;
+    @media only screen and (max-width: 992px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+}
 
 .margin {
     margin-top: 0.5rem;
@@ -48,8 +57,162 @@ border: none;
 background:none;
 color: gray;
     text-decoration: none;
-    margin-left: 5%;
+    margin-left: 3%;
     &:hover{
         color: rgb(43, 43, 43);
     }
+}
+
+
+.form-control2 {
+    border: 3px solid #FF7F50;
+    width: auto;
+}
+
+.form-control2:focus {
+    border-color: #FF7F50;
+    box-shadow: 0 0 0 0.2rem rgba(255, 127, 80, 0.25);
+}
+
+.btn-delect {
+    width: 120px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid #dc3545;
+    color: white;
+    background-color: #dc3545;
+  
+    &:hover {
+      color: #dc3545;
+      background-color: white;
+    }
+  }
+  
+  
+  .frame {
+    border: 3px solid rgb(85, 84, 84, 0.25);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100% !important;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+  }
+  
+  input[type="file"]::file-selector-button {
+    border-radius: 4px;
+    padding: 0 16px;
+    height: 40px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+    margin-right: 16px;
+    transition: background-color 200ms;
+  }
+  
+  /* file upload button hover state */
+  input[type="file"]::file-selector-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  /* file upload button active state */
+  input[type="file"]::file-selector-button:active {
+    background-color: #e5e7eb;
+  }
+  
+  .add-btn {
+    width: 200px;
+    padding: 10px;
+    border: 3px solid #FF7F50;
+    background: #FF7F50;
+    color: #FFFFFF;
+    border-radius: 10px;
+    margin-left: 3%;
+
+    &:hover{
+      background-color: #FFFFFF;
+      color: #FF7F50;
+    }
+  }
+
+  .iconToTheTop {
+    border: none;
+    font-size: 19pt;
+    color: white;
+    position: fixed;
+    bottom:20px;
+    right:50px;
+    cursor: pointer;
+  
+    transition: all .2s ease-in-out;
+  
+  
+    @media only screen and (max-width: 767px) {
+      font-size: 17pt;
+    }
+    @media only screen and (max-width: 600px) {
+      font-size: 15pt;
+    }
+    @media only screen and (max-width: 370px) {
+      font-size: 13pt;
+    }
+  }
+
+  .circle{
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: #FF7F50;
+    border: none;
+    color: #FFFFFF;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.4);
+  
+    &:hover {
+      padding: 0;
+      background-color: #FFFFFF;
+      border: 3px solid #FF7F50;
+      color: #FF7F50;
+    }
+  
+    @media only screen and (max-width: 767px) {
+      width: 45px;
+      height: 45px;
+    }
+    @media only screen and (max-width: 600px) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  
+.form-select{
+  padding: .375rem 12.2rem .375rem .75rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .margin-top-form{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .margin-top-form2{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .center{
+    margin-left: 0 !important;
+    display: flex;
+   justify-content: center;
+  }
+}
+
+
+@media only screen and (max-width: 576px) {
+  
 }

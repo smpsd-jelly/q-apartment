@@ -20,4 +20,5 @@ export interface CleanHistory {
     state_name: string;
     room_num: string;
     building: number;
+    phone_num: string;
 }

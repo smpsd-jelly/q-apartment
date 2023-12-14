@@ -9,14 +9,13 @@ import { PaymentInfoUserComponent } from './pages/payment-info-user/payment-info
 
 
 
-
 const routes: Routes = [
   { path: 'fix-user', component: FixUserPageComponent },
   { path: 'fix-user-history', component: FixUserHistoryComponent },
   { path: 'clean-user', component: CleanUserComponent },
   { path: 'clean-user-history', component: CleanUserHistoryComponent },
   { path: 'payment-user', component: PaymentUserComponent },
-  { path: 'payment-info-user', component: PaymentInfoUserComponent },
+  { path: 'payment-info-user/:index/:month_year', component: PaymentInfoUserComponent },
 ];
 
 @NgModule({

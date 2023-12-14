@@ -3,4 +3,5 @@ export interface Room {
     room_num: string;
     register: boolean;
     building: number;
+    user_id:number;
 }

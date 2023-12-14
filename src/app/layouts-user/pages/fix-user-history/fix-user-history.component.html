@@ -2,26 +2,31 @@
     {{title}}
 </div>
 <hr class="mt-4">
-<div *ngIf="fixData">
-    <div *ngFor="let item of fixData">
-        <div class="content">
-            <div class="row">
+<div *ngIf="fixData && fixData.length > 0">
+<div *ngFor="let item of fixData">
+    <div class="content">
+        <div class="row">
 
-                <div class="col-8 ">
-                    <div class="text-label-bold">แจ้งซ่อมแซม
-                        วันที่ <span>{{item.timestamp|date:'dd/MM/yyyy HH:mm'}} น.</span></div>
-                </div>
-                <div class="col-4">
-                    <div class="text-status" [ngClass]="{'text-status-color1':item.state_id == 1,
+            <div class="col-12 ">
+                <div class="text-label-bold">แจ้งซ่อมแซม
+                    วันที่ <span>{{item.timestamp|date:'dd/MM/yyyy HH:mm'}} น.</span></div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="text-label">{{item.description}} บริเวณ {{item.area}}</div>
+            </div>
+            <div class="col-12 mt-4">
+                <div class="text-status" [ngClass]="{'text-status-color1':item.state_id == 1,
                 'text-status-color2':item.state_id == 2,'text-status-color3':item.state_id == 3}">{{item.state_name}}
-                    </div>
                 </div>
-                <div class="col-12 mt-3">
-                    <div class="text-label">{{item.description}} บริเวณ {{item.area}}</div>
-                </div>
-
             </div>
         </div>
-        <hr class="mt-5" style="width: 100% !important;">
     </div>
+    <hr class="mt-5" style="width: 100% !important;">
 </div>
+</div>
+<div *ngIf="!fixData || fixData.length === 0">
+    <div class="d-flex justify-content-center align-items-center">
+                <div class="text-label-bold mt-5 mb-5">ไม่มีประวัติการแจ้งซ่อมแซม </div>
+            </div>
+        </div>

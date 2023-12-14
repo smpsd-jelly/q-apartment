@@ -6,4 +6,10 @@ export interface User {
     admin:boolean;
     phone_num:string;
     room_id:number;
+    create_by_admin:number;
+    create_date:any;
+    first_login:boolean;
+    room_num:string;
+    building:number;
+    created_by_username:string;
 }

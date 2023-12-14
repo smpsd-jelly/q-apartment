@@ -2,7 +2,7 @@ export interface FixData {
     fix_id: number;
     user_id: number;
     timestamp: any;
-    state_id: number; 
+    state_id: number;
     area: string;
     description: string;
     sub_phone: string;
@@ -23,4 +23,5 @@ export interface FixHistory {
     state_name: string;
     room_num: string;
     building: number;
+    phone_num: string;
 }

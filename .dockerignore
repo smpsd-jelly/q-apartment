@@ -1,0 +1,22 @@
+# Exclude Node.js modules (dependencies)
+node_modules
+
+# Exclude build artifacts
+dist
+
+# Exclude development and debugging files
+*.log
+*.log.*
+*.swp
+.DS_Store
+.env
+
+# Exclude version control files and directories
+.git
+.gitignore
+.gitattributes
+.svn
+
+# Exclude package manager files
+npm-debug.log
+yarn-error.log

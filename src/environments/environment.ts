@@ -1,3 +1,3 @@
 export const environment = {
-    socketEndpoint: 'http://localhost:5200'
+    socketEndpoint: 'https://solutionplusit.com/qapi/'
 };

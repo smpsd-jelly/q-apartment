@@ -58,7 +58,7 @@ export class ElectricityMeterComponent {
   }
 
   async confirmBtn() {
-    if(!this.month_year){
+    if(this.month_year){
       for(const items of this.billsData){
         items.month_year = new Date(this.month_year);
       }
@@ -75,7 +75,7 @@ export class ElectricityMeterComponent {
               return
             }
             this.swalSrv.successAlert({ title: "Success", text: "เพิ่มข้อมูลเลขมิเตอร์เสร็จสิ้น" });
-            window.location.reload;
+            this.router.navigate(['/admin/all-meter'])
           })
         }
       })

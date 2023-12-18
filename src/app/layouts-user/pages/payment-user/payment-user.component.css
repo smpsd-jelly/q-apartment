@@ -101,3 +101,36 @@
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
   }
   
+
+
+  @media only screen and (max-width: 270px) {
+    .content {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 2.5rem;
+    }
+    
+}
+
+@media only screen and (max-width: 250px) {
+    .content {
+        margin-left: 0.6rem;
+        margin-right: 0.6rem;
+    }
+    .box-month {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .font-month {
+        font-size: 11pt;
+    }
+}
+
+@media only screen and (max-width: 225px) {
+    .text-label-bold {
+        font-size: 11pt;
+    }
+    .back-btn{
+        font-size: 9pt;
+    }
+}

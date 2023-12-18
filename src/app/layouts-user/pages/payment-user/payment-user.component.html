@@ -10,12 +10,12 @@
                 <div *ngFor="let item of billsData; let i = index">
                     <div class="box-month mt-3 " (click)="clickToPaymentDetail(i)">
                         <div>ค่าใช้จ่ายเดือน {{item.month_year | date:'MMMM yyyy'}}</div>
-                        <div class="text-bold-in-box">
+                        <div class="text-bold-in-box mt-2">
                             {{calculateTotal(calculateElectric(item.electric_used),calculateWater(item.water_used),calculateClean(item.clean_count),calculateRent(item.rent))}}
                             บาท</div>
-                        <div class="d-flex justify-content-end">
+                        <div class="d-flex justify-content-end mt-3">
                             <p [ngClass]="{'text-bills-color-status1':item.bills_state_id == 1,
-                            'text-bills-color-status2':item.bills_state_id == 2}">
+                            'text-bills-color-status2':item.bills_state_id == 2,  'text-bills-color-status3':item.bills_state_id == 3}">
                                 {{item.bills_state_name}}</p><span><i class="fa-solid fa-chevron-right ms-2"></i></span>
                         </div>
                     </div>

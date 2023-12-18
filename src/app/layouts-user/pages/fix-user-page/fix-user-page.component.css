@@ -74,3 +74,29 @@
         font-size: 10pt;
     }
 }
+
+
+@media only screen and (max-width: 350px) {
+    .content {
+        width: 85%;
+    }
+
+    .btn-confirm2{
+        font-size: 12pt;
+    }
+
+    .text-label {
+        font-size: 11pt;
+    }
+
+    .text-note {
+        font-size: 9pt;
+    }
+}
+
+@media only screen and (max-width: 250px) {
+
+    .btn-confirm2{
+        font-size: 10pt;
+    }
+}

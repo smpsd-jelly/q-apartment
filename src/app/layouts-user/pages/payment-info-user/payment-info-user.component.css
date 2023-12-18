@@ -133,4 +133,27 @@ input[type="file"]::file-selector-button:active {
         margin-left: 1.5rem;
         margin-right: 1.5rem;
     }
+    .btn-upload {
+        width: 100% !important;
+    }
+    .btn-confirm2 {
+        font-size: 10pt !important;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .content {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .font-month {
+        font-size: 11pt;
+    }    
+
+    .back-btn {
+        font-size: 10pt;
+    }
+
+
 }

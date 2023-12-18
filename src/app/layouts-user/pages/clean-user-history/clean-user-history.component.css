@@ -42,3 +42,29 @@
         width: 90%;
     }
 }
+
+@media only screen and (max-width: 250px) {
+    .title-user {
+        font-size: 13pt;
+    }
+    
+}
+
+@media only screen and (max-width: 575.6px) {
+    .margin-top-topic{
+        margin-top: 0.5rem;
+    }
+}
+
+
+
+@media only screen and (max-width: 350px) {
+    .text-label-bold {
+        font-size: 12pt;
+    }
+    
+    .text-label {
+        font-size: 12pt;
+    }
+}
+

@@ -34,6 +34,9 @@
     @media only screen and (max-width: 269px) {
         width: 240px;
     }
+    @media only screen and (max-width: 250px) {
+        width: 200px;
+    }
 
 }
 
@@ -85,5 +88,13 @@
 @media only screen and (max-width: 550px)  {
     .padding-size{
 padding: 2rem !important;
+    }
+
+   
+}
+
+@media only screen and (max-width: 250px) {
+    .padding-size{
+        padding: .5rem !important;
     }
 }
